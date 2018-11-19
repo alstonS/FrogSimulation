@@ -12,15 +12,30 @@ public class FrogSimulation {
         }
 
         private int hopDistance(){
-            
+
+            int num = (int)((Math.random()*100)-5);
+            int prob = (int)((Math.random()*100)-1);
+            if (prob > 50)
+            {
+
+                return num;
+            }
+            else
+            {
+                return -1*num;
+            }
 
         }
+       
         public boolean simulate()
         {
             int position = 0;
             for(int count = 0; count < maxHops; count++)
             {
-                position += hopDistance();
+                int array1 = new array1[maxHops];
+                int numb = hopDistance();
+                position += numb;
+                array1[count]=numb;
                 if(position >= goalDistance)
                 {
                     return true;
@@ -34,13 +49,13 @@ public class FrogSimulation {
 
         public double runSimulation(int num)
         {
-            int countSucess=0;
+            int countSuccess=0;
             for(int i=0; i< num; i++)
             {
                 if(simulate()) {
-                    countSucess++;
+                    countSuccess++;
                 }
             }
-            return (double) countSucess/num;
+            return (double) countSuccess/num;
         }
 }
